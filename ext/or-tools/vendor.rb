@@ -9,23 +9,11 @@ if RbConfig::CONFIG["host_os"] =~ /darwin/i
   filename = "or-tools_MacOsX-11.2.3_v#{version}.tar.gz"
   checksum = "adf73a00d4ec49558b67be5ce3cfc8f30268da2253b35feb11d0d40700550bf6"
 else
-  os = %x[lsb_release -is].chomp rescue nil
-  os_version = %x[lsb_release -rs].chomp rescue nil
+  os = "Ubuntu"
+  os_version = "20.04"
   if os == "Ubuntu" && os_version == "20.04"
     filename = "or-tools_ubuntu-20.04_v#{version}.tar.gz"
     checksum = "5565343c1c310d2885a40ce850ae7e3468299b3fee97ae8eed8425ce06bd4960"
-  elsif os == "Ubuntu" && os_version == "18.04"
-    filename = "or-tools_ubuntu-18.04_v#{version}.tar.gz"
-    checksum = "08cf548d0179f7fa814bb7458be94cd1b8a3de14985e6a9faf6118a1d8571539"
-  elsif os == "Debian" && os_version == "10"
-    filename = "or-tools_debian-10_v#{version}.tar.gz"
-    checksum = "063fb1d8765ae23b0bb25b9c561e904532713416fe0458f7db45a0f72190eb50"
-  elsif os == "CentOS" && os_version == "8"
-    filename = "or-tools_centos-8_v#{version}.tar.gz"
-    checksum = "c98212ed4fc699d8ae70c1f53cd1d8dacd28e52970336fab5b86dedf7406f215"
-  elsif os == "CentOS" && os_version == "7"
-    filename = "or-tools_centos-7_v#{version}.tar.gz"
-    checksum = "b992bda4614bbc703583b0e9edcd2ade54bacfb9909399b20c8aa95ff7197d68"
   else
     platform =
       if Gem.win_platform?
