@@ -11,29 +11,8 @@ if RbConfig::CONFIG["host_os"] =~ /darwin/i
 else
   os = "Ubuntu"
   os_version = "20.04"
-  if os == "Ubuntu" && os_version == "20.04"
-    filename = "or-tools_ubuntu-20.04_v#{version}.tar.gz"
-    checksum = "5565343c1c310d2885a40ce850ae7e3468299b3fee97ae8eed8425ce06bd4960"
-  else
-    platform =
-      if Gem.win_platform?
-        "Windows"
-      elsif os || os_version
-        "#{os} #{os_version}"
-      else
-        "Unknown"
-      end
-
-    # there is a binary download for Windows
-    # however, it's compiled with Visual Studio rather than MinGW (which RubyInstaller uses)
-    raise <<~MSG
-      Binary installation not available for this platform: #{platform}
-
-      Build the OR-Tools C++ library from source, then run:
-      bundle config build.or-tools --with-or-tools-dir=/path/to/or-tools
-
-    MSG
-  end
+  filename = "or-tools_ubuntu-20.04_v#{version}.tar.gz"
+  checksum = "5565343c1c310d2885a40ce850ae7e3468299b3fee97ae8eed8425ce06bd4960"
 end
 
 short_version = version.split(".").first(2).join(".")
