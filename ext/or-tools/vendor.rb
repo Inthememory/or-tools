@@ -6,14 +6,15 @@ require "tmpdir"
 version = "9.0.9048"
 
 if RbConfig::CONFIG["host_os"] =~ /darwin/i
-  filename = "or-tools_MacOsX-11.2.3_v9.0.9048.tar.gz"
-  checksum = "bb814e5d1fabd30d75c29c85de367d9cb6dd8c67adb57f783be83417ebfe3c22"
+  filename = "or-tools_MacOsX-11.2.3_#{version}.tar.gz"
+  checksum = "adf73a00d4ec49558b67be5ce3cfc8f30268da2253b35feb11d0d40700550bf6"
 else
-  filename = "or-tools_alpine-edge_v9.0.9048.tar.gz"
+  filename = "or-tools_alpine-edge_#{version}.tar.gz"
   checksum = "5991c70d1bb460435b47f0e617945329160318b1af502bc3351778d9494f8001"
 end
 
-url = "https://github.com/google/or-tools/releases/download/v9.0/#{filename}"
+short_version = version.split(".").first(2).join(".")
+url = "https://github.com/google/or-tools/releases/download/v#{short_version}/#{filename}"
 
 $stdout.sync = true
 
