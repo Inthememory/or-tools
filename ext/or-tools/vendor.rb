@@ -6,10 +6,10 @@ require "tmpdir"
 version = "9.0.9048"
 
 if RbConfig::CONFIG["host_os"] =~ /darwin/i
-  filename = "or-tools_MacOsX-11.2.3_#{version}.tar.gz"
+  filename = "or-tools_MacOsX-11.2.3_v#{version}.tar.gz"
   checksum = "adf73a00d4ec49558b67be5ce3cfc8f30268da2253b35feb11d0d40700550bf6"
 else
-  filename = "or-tools_alpine-edge_#{version}.tar.gz"
+  filename = "or-tools_alpine-edge_v#{version}.tar.gz"
   checksum = "5991c70d1bb460435b47f0e617945329160318b1af502bc3351778d9494f8001"
 end
 
